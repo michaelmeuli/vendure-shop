@@ -63,15 +63,22 @@ export const config: VendureConfig = {
         EmailPlugin.init({
             handlers: defaultEmailHandlers,
             templatePath: path.join(__dirname, '../static/email/templates'),
-            outputPath: path.join(__dirname, '../static/email/output'),
-            mailboxPort: 3003,
             globalTemplateVars: {
                 fromAddress: '"Vendure Demo Store" <noreply@vendure.io>',
                 verifyEmailAddressUrl: 'https://demo.vendure.io/storefront/account/verify',
                 passwordResetUrl: 'https://demo.vendure.io/storefront/account/reset-password',
                 changeEmailAddressUrl: 'https://demo.vendure.io/storefront/account/change-email-address'
             },
-            devMode: true,
+            transport: {
+                type: 'smtp',
+                host: 'email-smtp.eu-central-1.amazonaws.com',
+                port: 25,
+                secure: false, // true for 465, false for other ports
+                auth: {
+                  user: <string>process.env.SMTP_USER,
+                  pass: <string>process.env.SMTP_PASSWORD
+                }
+            }
         }),
         DefaultSearchPlugin,
         AdminUiPlugin.init({
