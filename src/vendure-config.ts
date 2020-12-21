@@ -35,8 +35,10 @@ export const config: VendureConfig = {
         }],
     },
     authOptions: {
-        sessionSecret: '9s8wl7vkd8',
-        requireVerification: true,
+        superadminCredentials: {
+            identifier: <string>process.env.SUPERADMIN_IDENTIFIER,
+            password: <string>process.env.SUPERADMIN_PASSWORD,
+        },
     },
     dbConnectionOptions: {
         type: 'better-sqlite3',
