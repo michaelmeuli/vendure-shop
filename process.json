@@ -14,7 +14,13 @@
       "kill_timeout": 2000
     },
     {
-      "script": "./node_modules/.bin/http-server ./dist/yoga/",
+      "script": "serve",
+      "env": {
+        "PM2_SERVE_PATH": ".",
+        "PM2_SERVE_PORT": 3000,
+        "PM2_SERVE_SPA": "true",
+        "PM2_SERVE_HOMEPAGE": "./index.html"
+      },
       "name": "yoga-lichtquelle",
       "max_memory_restart": "1G",
       "kill_timeout": 2000
