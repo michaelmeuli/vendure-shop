@@ -12,6 +12,12 @@
       "name": "vendure-storefront",
       "max_memory_restart": "1G",
       "kill_timeout": 2000
+    },
+    {
+      "script": "./node_modules/.bin/http-server ./dist/yoga/",
+      "name": "yoga-lichtquelle",
+      "max_memory_restart": "1G",
+      "kill_timeout": 2000
     }
   ]
 }
