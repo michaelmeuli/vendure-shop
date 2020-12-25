@@ -18,11 +18,11 @@ export const config: VendureConfig = {
         adminApiPath: 'admin-api',
         shopApiPath: 'shop-api',
         adminApiPlayground: {
-            settings: {'request.credentials': 'include'},
+            settings: { 'request.credentials': 'include' },
         },
         adminApiDebug: true,
         shopApiPlayground: {
-            settings: {'request.credentials': 'include'},
+            settings: { 'request.credentials': 'include' },
         },
         shopApiDebug: true,
         middleware: [{
@@ -32,6 +32,13 @@ export const config: VendureConfig = {
                 route: 'storefront'
             }),
             route: 'storefront',
+        },{
+            handler: createProxyHandler({
+                label: 'Yoga Lichtquelle',
+                port: 8080,
+                route: 'yoga'
+            }),
+            route: 'yoga',
         }],
     },
     authOptions: {
@@ -77,8 +84,8 @@ export const config: VendureConfig = {
                 port: 25,
                 secure: false, // true for 465, false for other ports
                 auth: {
-                  user: <string>process.env.SMTP_USER,
-                  pass: <string>process.env.SMTP_PASSWORD
+                    user: <string>process.env.SMTP_USER,
+                    pass: <string>process.env.SMTP_PASSWORD
                 }
             }
         }),
