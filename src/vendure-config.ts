@@ -29,9 +29,9 @@ export const config: VendureConfig = {
             handler: createProxyHandler({
                 label: 'Demo Storefront',
                 port: 4000,
-                route: 'storefrontx'
+                route: 'storefront'
             }),
-            route: 'storefrontx',
+            route: 'storefront',
         }],
     },
     authOptions: {
